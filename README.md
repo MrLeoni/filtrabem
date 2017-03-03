@@ -1,4 +1,4 @@
-# Filtrabem
+# [Filtrabem](#)
 Tema para WordPress
 
 Criação: [Agência Delucca](http://www.agenciadelucca.com.br)
@@ -27,4 +27,10 @@ Esse tema é para __administração de conteúdo__, portanto as alterações de 
 <br>
 <br>
 
-## Versions:
+## Versões:
+
+### 1.0.0 - 03/03/17 - Released
+* Tema lançado e colocado em produção!
+
+<br>
+<br>

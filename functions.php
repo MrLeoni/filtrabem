@@ -111,11 +111,9 @@ function filtrabem_scripts() {
 	
 	wp_enqueue_style( 'bootstrap-style', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array() );
 	
-	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array() );
-	
 	wp_enqueue_style( 'bxslider-style', get_template_directory_uri() . '/assets/css/jquery.bxslider.css', array() );
 	
-	wp_enqueue_style( 'filtrabem-style', get_stylesheet_uri(), array('bootstrap-style', 'fontawesome', 'bxslider-style') );
+	wp_enqueue_style( 'filtrabem-style', get_stylesheet_uri(), array('bootstrap-style', 'bxslider-style') );
 	
 	// scripts
 	
@@ -168,41 +166,6 @@ require get_template_directory() . '/inc/jetpack.php';
 
 
 
-// Home Banner
-add_action("init", "homeBanner");
-function homeBanner() {
-	
-	// Registering new Custom Post Type
-	$labels_post = array( 
-		"name" => "Home Banners",
-		"singular_name" => "Banner",
-	);
-	$args_post = array(
-		"labels" => $labels_post,
-		"supports" => array("title", "editor", "thumbnail"),
-		"menu_position" => 21,
-		"menu_icon" => "dashicons-format-gallery",
-		"public"	=> true,
-		"show_in_menu"	=> true,
-	);
-	register_post_type("home-banner", $args_post);
-	
-	// Registering new Taxonomy
-	$labels_taxonomy = array( "name" => "Categorias dos Banners", "singular_name" => "Categoria do Banner");
-	$args_taxonomy = array(
-		"labels"	=> $labels_taxonomy,
-		"show_ui"	=> true,
-		"show_in_menu"	=> true,
-		"show_tagcloud"	=> false,
-		'show_admin_column' => true,
-		"hierarchical"	=> true,
-		"capabilities"	=> array("manage_terms", "edit_terms", "delete_terms", "assign_terms"),
-	);
-	register_taxonomy("category-home-banner", "home-banner", $args_taxonomy);
-}
-
-
-
 // FAQ
 add_action("init", "faq");
 function faq() {
@@ -215,7 +178,7 @@ function faq() {
 	$args_post = array(
 		"labels" => $labels_post,
 		"supports" => array("title", "editor", "thumbnail"),
-		"menu_position" => 21,
+		"menu_position" => 5,
 		"menu_icon" => "dashicons-editor-help",
 		"public"	=> true,
 		"show_in_menu"	=> true,
@@ -238,6 +201,41 @@ function faq() {
 
 
 
+// Home Banner
+add_action("init", "homeBanner");
+function homeBanner() {
+	
+	// Registering new Custom Post Type
+	$labels_post = array( 
+		"name" => "Home Banners",
+		"singular_name" => "Banner",
+	);
+	$args_post = array(
+		"labels" => $labels_post,
+		"supports" => array("title", "editor", "thumbnail"),
+		"menu_position" => 6,
+		"menu_icon" => "dashicons-format-gallery",
+		"public"	=> true,
+		"show_in_menu"	=> true,
+	);
+	register_post_type("home-banner", $args_post);
+	
+	// Registering new Taxonomy
+	$labels_taxonomy = array( "name" => "Categorias dos Banners", "singular_name" => "Categoria do Banner");
+	$args_taxonomy = array(
+		"labels"	=> $labels_taxonomy,
+		"show_ui"	=> true,
+		"show_in_menu"	=> true,
+		"show_tagcloud"	=> false,
+		'show_admin_column' => true,
+		"hierarchical"	=> true,
+		"capabilities"	=> array("manage_terms", "edit_terms", "delete_terms", "assign_terms"),
+	);
+	register_taxonomy("category-home-banner", "home-banner", $args_taxonomy);
+}
+
+
+
 // Complementos
 add_action("init", "complemento");
 function complemento() {
@@ -250,7 +248,7 @@ function complemento() {
 	$args_post = array(
 		"labels" => $labels_post,
 		"supports" => array("title", "editor", "thumbnail"),
-		"menu_position" => 21,
+		"menu_position" => 7,
 		"menu_icon" => "dashicons-plus",
 		"public"	=> true,
 		"show_in_menu"	=> true,

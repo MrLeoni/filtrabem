@@ -2,46 +2,62 @@
 /**
  * Template part for displaying posts
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
  * @package Filtrabem
  */
+ 
+ // ACF Fields
+ $referencia = get_field('spec-ref');
+ $conteudo = get_field('spec-content');
+ $dimensoes = get_field('spec-dimensions');
+ $composicao = get_field('spec-composition');
+ $caixa = get_field('spec-box');
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_single() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
-		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php filtrabem_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
-	</header><!-- .entry-header -->
-
-	<div class="entry-content">
-		<?php
-			the_content( sprintf(
-				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'filtrabem' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
-
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'filtrabem' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php filtrabem_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+  <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <div class="container">
+      
+      <header class="entry-header">
+        <h1><?php the_title('<b>Filtro | </b>', ''); ?></h1>
+      </header>
+      
+      <div class="row">
+        <div class="col-sm-4 col-md-3">
+          <div class="post-img">
+            <?php the_post_thumbnail('large'); ?>
+          </div>
+        </div>
+        <div class="col-sm-8 col-md-5">
+          <div class="entry-content">
+            <?php the_content(); ?>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4">
+          <div class="post-spec">
+            <h2><img src="<?php bloginfo('template_directory'); ?>/assets/img/icons/especificacoes.png" alt="Ícone Especificações Técnicas">Especificações Técnicas</h2>
+            <ul class="spec-list">
+              <li><p>Referência: <?php echo $referencia; ?></p></li>
+              <li><p>Conteúdo: <?php echo $conteudo; ?></p></li>
+              <li><p>Dimensões: <?php echo $dimensoes; ?></p></li>
+              <li><p>Composição: <?php echo $composicao; ?></p></li>
+              <li><p>Caixa de Embarque: <?php echo $caixa; ?></p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="entry-footer">
+        <div class="row">
+          <div class="col-sm-4 col-md-3">
+            <div class="bg-transparent"></div>
+            <a class="single-post-link short" href="<?php echo esc_html(home_url('/filtros')); ?>" title="Voltar para Filtros">Voltar</a>
+          </div>
+          <div class="col-sm-8 col-md-5">
+            <div class="bg-white-dot"></div>
+            <a class="single-post-link" href="<?php echo esc_html(home_url('/fale-conosco')); ?>" title="Ir para a página">Solicitar Orçamento</a>
+          </div>
+        </div>
+      </footer>
+      
+    </div>
+  </article><!-- #post-## -->
