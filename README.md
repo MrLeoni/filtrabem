@@ -29,6 +29,14 @@ Esse tema é para __administração de conteúdo__, portanto as alterações de 
 
 ## Versões:
 
+### 1.0.1 - 13/03/17
+- Pequenas mudanças no layout
+- Os emails, no footer, agora estão em um post separado
+- Fundo da página 'Marcas Próprias' alterado para branco
+
+<br>
+<br>
+
 ### 1.0.0 - 03/03/17 - Released
 * Tema lançado e colocado em produção!
 

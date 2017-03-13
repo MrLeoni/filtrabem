@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Agência Delucca
 Author URI: http://www.agenciadelucca.com.br
 Description: Tema feito sob medida para a empresa Filtrabem
-Version: 1.0.0
+Version: 1.0.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: filtrabem
@@ -697,6 +697,10 @@ h2.active .faq-icon:before {
 	font-size: 1.2em;
 }
 
+#page-default .marcas-proprias {
+  color: #c52e34;
+}
+
 #page-default h1,
 #page-default h2,
 #page-default h3,
@@ -709,6 +713,10 @@ h2.active .faq-icon:before {
 .commun-content {
 	padding: 80px 0;
 	background-color: #c52e34;
+}
+
+.commun-content.marcas-proprias {
+  background-color: #fff;
 }
 
 .commun-content p {
@@ -1015,6 +1023,14 @@ h2.active .faq-icon:before {
 	color: #005b3f;
 }
 
+.col-sm-10 .footer-posts {
+  margin: 30px 0 0;
+  padding: 30px 0 0;
+  background-image: url(assets/img/icons/dot-green-horizontal.png);
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+
 .footer-posts a:link,
 .footer-posts a:visited {
 	color: #468874;
@@ -1028,7 +1044,7 @@ h2.active .faq-icon:before {
 }
 
 .map-box {
-	padding-bottom: 70%;
+	padding-bottom: 80%;
 	margin: 0;
 	position: relative;
 }

@@ -26,10 +26,11 @@ get_header(); ?>
     <section id="page-default">
     
       <?php while ( have_posts() ) : the_post(); 
+        global $post;
         $page_content = get_field('page-content');
         ?>
         
-          <article class="commun-content">
+          <article class="commun-content <?php echo $post->post_name; ?>">
             <div class="container">
               <?php the_content(); ?>
             </div>
